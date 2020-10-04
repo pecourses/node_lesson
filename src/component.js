@@ -1,6 +1,6 @@
-// import lodash from 'lodash';
+import lodash from 'lodash';
 
-// console.log(lodash);
+console.log(lodash);
 
 class Component {
   constructor(text) {

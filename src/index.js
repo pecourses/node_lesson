@@ -1,8 +1,9 @@
 // const Component = require("./component");
 import Component from './component';
-import './reset.scss';
-// import './styles.css';
-import './style.scss';
+import './reset.css';
+import './styles.css';
+import './styles.scss';
+import './styles.sass';
 
 const root = document.getElementById('root');
 const div = document.createElement('div');

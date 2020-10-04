@@ -1,4 +1,5 @@
 body {
+  font-family: 'Hind', sans-serif;
   background-color: dodgerblue;
   min-width: 100vw;
   min-height: 100vh;
@@ -12,4 +13,10 @@ body {
 
 ul{
     margin: 100px;
+}
+
+img{
+  width: 200px;
+  height: 200px;
+  margin: 20px;
 }

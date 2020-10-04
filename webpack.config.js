@@ -18,9 +18,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.(css|s[ac]ss)$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", 'sass-loader'],
       },
+
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -30,7 +31,28 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
-      }
+      },
+
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [

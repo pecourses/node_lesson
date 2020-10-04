@@ -1,6 +1,6 @@
 // const Component = require("./component");
 import Component from './component';
-import './reset.css';
+import './reset.scss';
 import './styles.css';
 
 const root = document.getElementById('root');

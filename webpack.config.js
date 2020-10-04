@@ -18,8 +18,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.css$|\.s[ac]ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          'sass-loader'
+        ],
       },
       {
         test: /\.js$/,
@@ -30,17 +34,6 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          'style-loader',
-          // Translates CSS into CommonJS
-          'css-loader',
-          // Compiles Sass to CSS
-          'sass-loader',
-        ],
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,

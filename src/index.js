@@ -2,6 +2,8 @@
 import Component from './component';
 import './reset.css';
 import './styles.css';
+import './Images/10x-featured-social-media-image-size.png';
+import './sass/testSass.scss';
 
 const root = document.getElementById('root');
 const div = document.createElement('div');

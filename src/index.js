@@ -1,12 +1,14 @@
 // const Component = require("./component");
-import Component from './component';
-import './reset.css';
-import './styles.css';
+import Component from "./component";
+import "./reset.css";
+import "./styles.css";
+import "./component.sass";
 
-const root = document.getElementById('root');
-const div = document.createElement('div');
+const root = document.getElementById("root");
+const div = document.createElement("div");
 div.textContent = "Hi webpack";
-div.classList.add('block');
+div.classList.add("block");
+div.classList.add("component");
 root.append(div);
 
 console.log(Component);

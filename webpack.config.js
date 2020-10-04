@@ -18,8 +18,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"], // to extract css into the separate files
+        test: /(\.css$|\.s[ac]ss)/,
+        use: [MiniCssExtractPlugin.loader, "css-loader",'sass-loader'], // to extract css into the separate files
       },
       {
         test: /\.js$/,
@@ -30,6 +30,12 @@ module.exports = {
             presets: ["@babel/preset-env"],
           },
         },
+      },
+      {
+        test: /\.(png|svg|jpg|gif|woff|woff2|eot|ttf|otf)$/,
+        use: [
+          'file-loader',
+        ],
       },
     ],
   },
@@ -43,9 +49,10 @@ module.exports = {
       template: "./src/index.html",
     }), // to insert html into the build
   ],
+  devtool: 'inline-source-map',
   devServer: {
     contentBase: pathToBundle,
-    port: 9000, // open dev server on porn 9000
+    port: 9000, // open dev server on port 9000
     open: true, // open dev server on startup
   },
   optimization: {

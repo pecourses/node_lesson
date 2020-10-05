@@ -1,2 +1,5 @@
 **/node_modules/
 /bundle/
+.vscode/
+.idea/
+!.gitignore

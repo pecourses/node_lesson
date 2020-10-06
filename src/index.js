@@ -1,23 +1,17 @@
-// const Component = require("./component");
 import Component from './component';
 import './reset.scss';
-import './styles.css';
+import './styles.sass';
+import image from './download.png';
 
 const root = document.getElementById('root');
 const div = document.createElement('div');
+const img = new Image(100, 100);
+
 div.textContent = "Hi webpack";
 div.classList.add('block');
-root.append(div);
+
+img.src = image;
+
+root.append(div, img);
 
 console.log(Component);
-/*
-    How require() works. 
-
-1. Core modules node
-2. node_modules
-3. filename.js | filename.json
-4. directory
-    4.1 package.json -> "main"
-    4.2 index.js | index.json
-5. throw new Error()
-*/

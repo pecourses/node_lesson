@@ -9,7 +9,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const pathToBundle = path.resolve(__dirname, "bundle");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: "./src/index.js",
   output: {
     filename: "[contenthash].bundle.js",
@@ -34,29 +34,45 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          'file-loader',
+          {
+            loader: 'file-loader',
+            options: {
+              name: "[contenthash].img.[ext]",
+              outputPath: "static/images",
+            },
+          },
           {
             loader: 'image-webpack-loader',
             options: {
-              disable: true, // webpack@2.x and newer
-              //   mozjpeg: {
-              //     progressive: true,
-              //   },
-              //   // optipng.enabled: false will disable optipng
-              //   optipng: {
-              //     enabled: false,
-              //   },
-              //   pngquant: {
-              //     quality: [0.65, 0.90],
-              //     speed: 4
-              //   },
-              //   gifsicle: {
-              //     interlaced: false,
-              //   },
-              //   // the webp option will enable WEBP
-              //   webp: {
-              //     quality: 75
+              // mozjpeg: {
+              //   progressive: true,
+              //   quality: 65
               // },
+              // optipng: {
+              //   enabled: false,
+              // },
+              // pngquant: {
+              //   quality: '65-90',
+              //   speed: 4
+              // },
+              // gifsicle: {
+              //   interlaced: false,
+              // },
+              // svgo: {
+              //   enabled: false,
+              // }
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: "[contenthash].font.[ext]",
+              outputPath: "static/fonts",
             },
           },
         ],
@@ -88,5 +104,5 @@ module.exports = {
       new TerserPlugin()
     ],
   },
-  
+
 };

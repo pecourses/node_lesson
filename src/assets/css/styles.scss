@@ -1,0 +1,17 @@
+$body-color: #888888;
+
+@font-face {
+  font-family: "Amatic";
+  src: url(../fonts/AmaticSC-Bold.ttf);
+  font-style: normal;
+}
+
+body {
+  background-color: $body-color;
+}
+
+
+#root {
+  font-family: "Amatic";
+  text-align: center;
+}

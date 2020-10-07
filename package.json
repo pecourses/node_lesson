@@ -5,8 +5,8 @@
   "description": "test",
   "main": "./src/index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "npx webpack"
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "author": "me",
   "license": "ISC",
@@ -29,6 +29,7 @@
     "terser-webpack-plugin": "^4.2.2",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.2.0"
   }
 }

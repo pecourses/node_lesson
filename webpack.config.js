@@ -30,9 +30,40 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
-      }
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disable: true, // webpack@2.x and newer
+              //   mozjpeg: {
+              //     progressive: true,
+              //   },
+              //   // optipng.enabled: false will disable optipng
+              //   optipng: {
+              //     enabled: false,
+              //   },
+              //   pngquant: {
+              //     quality: [0.65, 0.90],
+              //     speed: 4
+              //   },
+              //   gifsicle: {
+              //     interlaced: false,
+              //   },
+              //   // the webp option will enable WEBP
+              //   webp: {
+              //     quality: 75
+              // },
+            },
+          },
+        ],
+      },
     ],
   },
+
   plugins: [
     new MiniCssExtractPlugin({
       filename: "[name].css",
@@ -43,11 +74,13 @@ module.exports = {
       template: "./src/index.html",
     }), // to insert html into the build
   ],
+
   devServer: {
     contentBase: pathToBundle,
     port: 9000,
     open: true,
   },
+
   optimization: {
     minimize: true,
     minimizer: [
@@ -55,4 +88,5 @@ module.exports = {
       new TerserPlugin()
     ],
   },
+  
 };

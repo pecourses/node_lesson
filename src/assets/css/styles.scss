@@ -9,7 +9,9 @@ $body-color: #888888;
 body {
   background-color: $body-color;
 }
-
+img {
+  margin: 0 10px;
+}
 
 #root {
   font-family: "Amatic";

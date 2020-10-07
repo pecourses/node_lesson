@@ -1,4 +1,4 @@
-import lodash from 'lodash';
+import lodash from "lodash";
 
 console.log(lodash);
 
@@ -7,4 +7,4 @@ class Component {
     this.text = text;
   }
 }
-export default Component
+export default Component;

@@ -2,9 +2,9 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const webpack = require("webpack");
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 const pathToBundle = path.resolve(__dirname, "bundle");
 
@@ -19,30 +19,30 @@ module.exports = {
     rules: [
       {
         test: /\.(s[ac]|c)ss$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ["@babel/preset-env"],
+          },
+        },
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
               name: "[contenthash].img.[ext]",
               outputPath: "static/images",
             },
           },
           {
-            loader: 'image-webpack-loader',
+            loader: "image-webpack-loader",
             options: {
               // mozjpeg: {
               //   progressive: true,
@@ -69,7 +69,7 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
               name: "[contenthash].font.[ext]",
               outputPath: "static/fonts",
@@ -99,10 +99,6 @@ module.exports = {
 
   optimization: {
     minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(),
-      new TerserPlugin()
-    ],
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
   },
-
 };

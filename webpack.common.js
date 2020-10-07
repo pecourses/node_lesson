@@ -7,7 +7,7 @@ const webpack = require("webpack");
 const pathToBundle = path.resolve(__dirname, "bundle");
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: "./src/assets/js/index.js",
     output: {
         filename: "[contenthash].bundle.js",
         path: pathToBundle,

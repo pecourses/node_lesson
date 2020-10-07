@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "test",
-  "main": "./src/index.js",
+  "main": "./src/assets/js/index.js",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"

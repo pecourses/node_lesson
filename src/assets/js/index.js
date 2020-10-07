@@ -1,7 +1,7 @@
 import Component from './component';
-import './reset.scss';
-import './styles.sass';
-import image from './download.png';
+import '../styles/reset.scss';
+import '../styles/styles.sass';
+import image from '../images/download.png';
 
 const root = document.getElementById('root');
 const div = document.createElement('div');

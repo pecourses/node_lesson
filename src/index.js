@@ -3,6 +3,8 @@ import Component from "./component";
 import "./reset.css";
 import "./styles.css";
 import "./component.sass";
+import "./styles.scss"
+import Icon from './icon.png';
 
 const root = document.getElementById("root");
 const div = document.createElement("div");
@@ -10,6 +12,14 @@ div.textContent = "Hi webpack";
 div.classList.add("block");
 div.classList.add("component");
 root.append(div);
+
+
+const myIcon = new Image();
+   myIcon.src = Icon;
+
+   root.appendChild(myIcon);
+
+
 
 console.log(Component);
 /*

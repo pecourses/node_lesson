@@ -11,7 +11,13 @@ div.classList.add("block");
 div.classList.add("component");
 root.append(div);
 
-console.log(Component);
+
+if (process.env.NODE_ENV !== 'production') {
+    console.log('Looks like we are in development mode!');
+}
+
+// console.log(Component);
+
 /*
     How require() works. 
 

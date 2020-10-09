@@ -1,19 +1,21 @@
 const path = require("path");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const webpack = require("webpack");
-const TerserPlugin = require("terser-webpack-plugin");
 
 const pathToBundle = path.resolve(__dirname, "bundle");
+const pathToAssets = path.resolve(__dirname, "./src/assets");
 
 module.exports = {
-  mode: "production",
   entry: "./src/index.js",
   output: {
-    filename: "[contenthash].bundle.js",
+    filename: "index.[contenthash].js",
     path: pathToBundle,
+  },
+  resolve: {
+    alias: {
+      "@img": path.resolve(pathToAssets, "images"),
+    },
   },
   module: {
     rules: [
@@ -37,7 +39,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "[contenthash].img.[ext]",
+              name: "[name].[contenthash].[ext]",
               outputPath: "static/images",
             },
           },
@@ -71,7 +73,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "[contenthash].font.[ext]",
+              name: "[name].[contenthash].[ext]",
               outputPath: "static/fonts",
             },
           },
@@ -82,23 +84,13 @@ module.exports = {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "[name].[contenthash].css",
     }), // to extract styles into the separate file
-    new CleanWebpackPlugin(), // to clean the bundle folder on rebuild
     new webpack.ProgressPlugin(), // show build progress
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }), // to insert html into the build
   ],
 
-  devServer: {
-    contentBase: pathToBundle,
-    port: 9000,
-    open: true,
-  },
-
-  optimization: {
-    minimize: true,
-    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
-  },
+  
 };

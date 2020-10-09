@@ -4,11 +4,11 @@ import "./assets/css/reset.css";
 import "./assets/css/styles.css";
 import "./assets/css/styles.scss";
 import "./assets/css/styles.sass";
-import jsJpg from "./assets/images/js-logo.jpg";
-import webpackJpe from "./assets/images/webpack-logo.jpeg";
-import reactPng from "./assets/images/react-logo.png";
-import nodejsSvg from "./assets/images/nodejs-logo.svg";
-import fsGif from "./assets/images/fullstack.gif";
+import jsJpg from "@img/js-logo.jpg";
+import webpackJpe from "@img/webpack-logo.jpeg";
+import reactPng from "@img/react-logo.png";
+import nodejsSvg from "@img/nodejs-logo.svg";
+import fsGif from "@img/fullstack.gif";
 
 const root = document.getElementById("root");
 const div = document.createElement("div");

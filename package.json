@@ -5,8 +5,9 @@
   "description": "test",
   "main": "./src/index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "npx webpack"
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "build": "npx webpack --config webpack.prod.js "
+
   },
   "author": "me",
   "license": "ISC",
